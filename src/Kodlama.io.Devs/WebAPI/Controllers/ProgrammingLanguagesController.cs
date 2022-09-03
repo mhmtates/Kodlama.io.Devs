@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Application.Features.ProgrammingLanguages.Commands.CreateProgrammingLanguage;
+using Application.Features.ProgrammingLanguages.Dtos;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -7,6 +9,12 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ProgrammingLanguagesController : BaseController
     {
+        [HttpPost]
+        public async Task<IActionResult> Add([FromBody]CreateProgrammingLanguageCommand createProgrammingLanguageCommand)
+        {
+            CreatedProgrammingLanguageDto createdProgrammingLanguageDto = await Mediator.Send(createProgrammingLanguageCommand);
+            return Created("", createdProgrammingLanguageDto);
+        }
 
     }
 }
