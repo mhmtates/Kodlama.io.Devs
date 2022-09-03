@@ -15,7 +15,7 @@ namespace Application
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
-            //services.AddScoped<BrandBusinessRules>(); ** Buraya geri dön sonra.
+            //services.AddScoped<BrandBusinessRules>(); 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
