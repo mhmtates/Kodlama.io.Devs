@@ -12,7 +12,12 @@ namespace Domain.Entities
        public string Name { get; set; }
 
 
-        public ProgrammingLanguage(int id,string name)
+        public ProgrammingLanguage()
+        {
+
+        }
+
+        public ProgrammingLanguage(int id,string name):this()
         {
             Id = id;
             Name = name;
