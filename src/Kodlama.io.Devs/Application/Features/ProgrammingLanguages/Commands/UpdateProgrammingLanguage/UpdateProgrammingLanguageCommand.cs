@@ -28,10 +28,10 @@ namespace Application.Features.ProgrammingLanguages.Commands.UpdateProgrammingLa
 
             public async Task<UpdatedProgrammingLanguageDto> Handle(UpdateProgrammingLanguageCommand request, CancellationToken cancellationToken)
             {
-                
+
                 ProgrammingLanguage? mappedprogrammingLanguage = _mapper.Map<ProgrammingLanguage>(request);
+                _programmingLanguageBusinessRules.ProgrammingLanguageShouldExistWhenRequested(mappedprogrammingLanguage);
                 ProgrammingLanguage updatedprogrammingLanguage = await _programmingLanguageRepository.UpdateAsync(mappedprogrammingLanguage);
-                _programmingLanguageBusinessRules.ProgrammingLanguageToBeUpdatedShouldExist(updatedprogrammingLanguage);
                 UpdatedProgrammingLanguageDto updatedProgrammingLanguageDto = _mapper.Map<UpdatedProgrammingLanguageDto>(updatedprogrammingLanguage);
                 return updatedProgrammingLanguageDto;
             }

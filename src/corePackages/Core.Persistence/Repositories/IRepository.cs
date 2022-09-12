@@ -18,6 +18,7 @@ public interface IRepository<T> : IQuery<T> where T : Entity
                                   Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null,
                                   int index = 0, int size = 10, bool enableTracking = true);
 
+  
     T Add(T entity);
     T Update(T entity);
     T Delete(T entity);

@@ -5,7 +5,7 @@ using Core.Application.Requests;
 using Core.Persistence.Paging;
 using Domain.Entities;
 using MediatR;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.ProgrammingLanguages.Queries.GetListProgrammingLanguage
 {
@@ -26,8 +26,8 @@ namespace Application.Features.ProgrammingLanguages.Queries.GetListProgrammingLa
 
             public async Task<ProgrammingLanguageListModel> Handle(GetListProgrammingLanguageQuery request, CancellationToken cancellationToken)
             {
-                IPaginate<ProgrammingLanguage> ProgrammingLanguages = await _ProgrammingLanguageRepository.GetListAsync(index: request.PageRequest.Page, size: request.PageRequest.PageSize);
-                ProgrammingLanguageListModel mappedProgrammingLanguageListModel = _mapper.Map<ProgrammingLanguageListModel>(ProgrammingLanguages);
+                IPaginate<ProgrammingLanguage> programmingLanguages = await _ProgrammingLanguageRepository.GetListAsync(index: request.PageRequest.Page, size: request.PageRequest.PageSize);
+                ProgrammingLanguageListModel mappedProgrammingLanguageListModel = _mapper.Map<ProgrammingLanguageListModel>(programmingLanguages);
                 return mappedProgrammingLanguageListModel;
             }
         }
