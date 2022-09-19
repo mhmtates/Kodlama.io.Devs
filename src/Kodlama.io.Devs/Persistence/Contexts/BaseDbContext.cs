@@ -18,7 +18,10 @@ namespace Persistence.Contexts
 
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
 
-        public DbSet<GithubAccount> GithubAccounts{ get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
+
+
+        public DbSet<SocialMediaAccount> SocialMediaAccounts { get; set; }
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;
@@ -63,7 +66,7 @@ namespace Persistence.Contexts
                 a.HasMany(p => p.UserOperationClaims);
             });
 
-            modelBuilder.Entity<OperationClaim>(a=>
+            modelBuilder.Entity<OperationClaim>(a =>
             {
                 a.ToTable("OperationClaims").HasKey(k => k.Id);
                 a.Property(p => p.Id).HasColumnName("Id");
@@ -79,28 +82,42 @@ namespace Persistence.Contexts
                 a.HasOne(p => p.OperationClaim);
             });
 
-            modelBuilder.Entity<GithubAccount>(a =>
+            modelBuilder.Entity<UserProfile>(a =>
             {
-                a.ToTable("GithubAccounts").HasKey(k => k.Id);
-                a.Property(p=>p.Id).HasColumnName("Id");
-                a.Property(p =>p.Url).HasColumnName("Url");
-                a.Property(p => p.UserId).HasColumnName("UserId");
-                a.HasOne(p => p.User);
-                
+                a.ToTable("UserProfiles");
+                a.Property(p => p.Id).HasColumnName("Id");
+                a.Property(p => p.FullName).HasColumnName("FullName");
+                a.Property(p => p.ProfilePicture).HasColumnName("ProfilePicture");
+                a.Property(p => p.Bio).HasColumnName("Bio");
+                a.Property(p => p.Location).HasColumnName("Location");
+                a.Property(p => p.EmailAddress).HasColumnName("EmailAddress");
+                a.Property(p => p.PhoneNumber).HasColumnName("PhoneNumber");
+                a.Property(p => p.CompanyName).HasColumnName("CompanyName");
+                a.Property(p => p.WebSiteUrl).HasColumnName("WebSiteUrl");
+                a.Property(p => p.FullAddress).HasColumnName("FullAddress");
+                a.Property(p => p.BirthDate).HasColumnName("BirthDate");
+                a.HasMany(p => p.SocialMediaAccounts);
 
             });
 
+
+            modelBuilder.Entity<SocialMediaAccount>(a =>
+            {
+                a.ToTable("SocialMediaAccounts").HasKey(k => k.Id);
+                a.Property(p => p.Id).HasColumnName("Id");
+                a.Property(p => p.Type).HasColumnName("Type");
+                a.Property(p => p.Url).HasColumnName("Url");
+                a.Property(p => p.UserId).HasColumnName("UserId");
+                a.HasOne(p => p.UserProfile);
+            });
+
+
+
             ProgrammingLanguage[] programmingLanguageEntitySeeds = { new(1, "C#"), new(2, "Java"), new(3, "Phyton") };
             modelBuilder.Entity<ProgrammingLanguage>().HasData(programmingLanguageEntitySeeds);
-
             Technology[] technologyEntitySeeds = { new(1, 1, "WPF"), new(2, 1, "ASP.NET"), new(3, 2, "Spring"), new(4, 2, "JSP"), new(5, 3, "NumPy"), new(6, 3, "Django") };
             modelBuilder.Entity<Technology>().HasData(technologyEntitySeeds);
-
-
-            GithubAccount[] githubAccountEntitySeeds= { new(1,1,"https://github.com/mhmtates") };
-            modelBuilder.Entity<GithubAccount>().HasData(githubAccountEntitySeeds);
-            OperationClaim[] operationClaimEntitySeeds = { new(1, "Admin"), new(2, "User") };
-            modelBuilder.Entity<OperationClaim>().HasData(operationClaimEntitySeeds);
+            
 
 
         }

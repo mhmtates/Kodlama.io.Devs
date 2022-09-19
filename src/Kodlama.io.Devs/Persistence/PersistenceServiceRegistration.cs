@@ -16,9 +16,10 @@ namespace Persistence
             (options => options.UseSqlServer(
              configuration.GetConnectionString("KodlamaIoDotNetCampConnectionString")));
             services.AddScoped<IProgrammingLanguageRepository, ProgrammingLanguageRepository>();
-            services.AddScoped<ITechnologyRepository,TechnologyRepository>();
+            services.AddScoped<ITechnologyRepository, TechnologyRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IGithubAccountRepository, GithubAccountRepository>();
+            services.AddScoped<IUserProfileRepository, UserProfileRepository>();
+            services.AddScoped<ISocialMediaAccountRepository, SocialMediaAccountRepository>();
             return services;
         }
     }

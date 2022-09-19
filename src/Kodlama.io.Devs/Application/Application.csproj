@@ -7,10 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\GithubAccounts\Rules\" />
+    <None Remove="Features\Authentication\Rules\AuthenticationBusinessRules.cs~RF9a99945a.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Features\ProgrammingLanguages\Constants\" />
-    <Folder Include="Features\GithubAccounts\Profiles\" />
     <Folder Include="Features\Technologies\Constants\" />
+    <Folder Include="Features\UserProfiles\Profiles\" />
   </ItemGroup>
 
   <ItemGroup>

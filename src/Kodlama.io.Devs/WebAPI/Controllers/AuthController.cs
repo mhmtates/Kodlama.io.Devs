@@ -1,5 +1,5 @@
-﻿using Application.Features.Users.Commands.RegisterUser;
-using Application.Features.Users.Dtos;
+﻿using Application.Features.Authentication.Commands.RegisterUser;
+using Application.Features.Authentication.Dtos;
 using Core.Security.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

@@ -1,14 +1,13 @@
 ﻿using Application.Services.Repositories;
 using Core.Persistence.Repositories;
-using Core.Security.Entities;
 using Domain.Entities;
 using Persistence.Contexts;
 
 namespace Persistence.Repositories
 {
-    public class UserRepository : EfRepositoryBase<User, BaseDbContext>, IUserRepository
+    public class UserProfileRepository : EfRepositoryBase<UserProfile, BaseDbContext>, IUserProfileRepository
     {
-        public UserRepository(BaseDbContext context) : base(context)
+        public UserProfileRepository(BaseDbContext context) : base(context)
         {
 
         }

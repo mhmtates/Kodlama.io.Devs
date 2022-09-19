@@ -4,7 +4,7 @@ using Domain.Entities;
 
 namespace Application.Services.Repositories
 {
-    public interface IUserRepository:IAsyncRepository<User>,IRepository<User>
+    public interface IUserProfileRepository:IAsyncRepository<UserProfile>,IRepository<UserProfile>
     {
         
 
