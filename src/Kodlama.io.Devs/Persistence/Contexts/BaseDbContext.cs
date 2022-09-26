@@ -107,7 +107,7 @@ namespace Persistence.Contexts
                 a.Property(p => p.Id).HasColumnName("Id");
                 a.Property(p => p.Type).HasColumnName("Type");
                 a.Property(p => p.Url).HasColumnName("Url");
-                a.Property(p => p.UserId).HasColumnName("UserId");
+                a.Property(p => p.UserProfileId).HasColumnName("UserProfileId");
                 a.HasOne(p => p.UserProfile);
             });
 

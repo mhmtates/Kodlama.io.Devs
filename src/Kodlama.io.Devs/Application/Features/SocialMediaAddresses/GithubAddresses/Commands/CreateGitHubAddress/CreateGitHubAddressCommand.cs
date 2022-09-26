@@ -9,8 +9,9 @@ namespace Application.Features.SocialMediaAddresses.GithubAddresses.Commands.Cre
 {
     public class CreateGitHubAddressCommand : IRequest<CreatedSocialMediaAddressDto>
     {
-        public CreatedSocialMediaAddressDto CreatedGithubAddress { get; set; }
+        public string Url{ get; set; }
 
+        public int UserProfileId { get; set; }
         public class CreateGithubAddressCommandHandler : IRequestHandler<CreateGitHubAddressCommand, CreatedSocialMediaAddressDto>
         {
             private readonly ISocialMediaAddressRepository _socialMediaAddressRepository;

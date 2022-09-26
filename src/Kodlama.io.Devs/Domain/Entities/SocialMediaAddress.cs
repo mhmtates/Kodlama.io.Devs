@@ -15,18 +15,18 @@ namespace Domain.Entities
         public string Url { get; set; }
         public virtual UserProfile UserProfile { get; set; }
 
-        public int UserId { get; set; }
+        public int UserProfileId { get; set; }
         public SocialMediaAddress()
         {
 
         }
 
-        public SocialMediaAddress(int id, string type, string url, int userid) : this()
+        public SocialMediaAddress(int id, string type, string url, int userProfileId) : this()
         {
             Id = id;
             Type = type;
             Url = url;
-            UserId = userid;
+            UserProfileId = userProfileId;
         }
 
     }

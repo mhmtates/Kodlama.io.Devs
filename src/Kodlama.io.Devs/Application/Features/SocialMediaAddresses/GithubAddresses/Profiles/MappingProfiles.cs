@@ -5,6 +5,7 @@ using Application.Features.SocialMediaAddresses.GithubAddresses.Dtos;
 using Application.Features.SocialMediaAddresses.GithubAddresses.Models;
 using Application.Features.SocialMediaAddresses.GithubAddresses.Queries.GetByIdGithubAddress;
 using AutoMapper;
+using Core.Persistence.Paging;
 using Domain.Entities;
 
 namespace Application.Features.SocialMediaAddresses.GithubAddresses.Profiles
@@ -21,7 +22,8 @@ namespace Application.Features.SocialMediaAddresses.GithubAddresses.Profiles
             CreateMap<SocialMediaAddress, DeleteGitHubAddressCommand>().ReverseMap();
             CreateMap<SocialMediaAddress, SocialMediaAddressGetByIdDto>().ReverseMap();
             CreateMap<SocialMediaAddress, GetByIdGithubAddressQuery>().ReverseMap();
-            CreateMap<SocialMediaAddress, SocialMediaAddressListModel>().ReverseMap();
+            CreateMap<SocialMediaAddress, SocialMediaAddressListDto>().ReverseMap();
+            CreateMap<IPaginate<SocialMediaAddress>, SocialMediaAddressListModel>().ReverseMap();
             CreateMap<SocialMediaAddress, GetListGitHubAddressQuery>().ReverseMap();
 
         }

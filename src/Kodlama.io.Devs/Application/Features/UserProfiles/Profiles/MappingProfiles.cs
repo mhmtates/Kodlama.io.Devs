@@ -5,6 +5,7 @@ using Application.Features.UserProfiles.Commands.UpdateUserProfile;
 using Application.Features.UserProfiles.Dtos;
 using Application.Features.UserProfiles.Models;
 using AutoMapper;
+using Core.Persistence.Paging;
 using Domain.Entities;
 
 namespace Application.Features.UserProfiles.Profiles
@@ -21,7 +22,8 @@ namespace Application.Features.UserProfiles.Profiles
             CreateMap<UserProfile, DeleteUserProfileCommand>().ReverseMap();
             CreateMap<UserProfile, UserProfileGetByIdDto>().ReverseMap();
             CreateMap<UserProfile, GetByIdUserProfileQuery>().ReverseMap();
-            CreateMap<UserProfile, UserProfileListModel>().ReverseMap();
+            CreateMap<IPaginate<UserProfile>, UserProfileListModel>().ReverseMap();
+            CreateMap<UserProfile, UserProfileListDto>().ReverseMap();
             CreateMap<UserProfile, GetListUserProfileQuery>().ReverseMap();
         }
     }

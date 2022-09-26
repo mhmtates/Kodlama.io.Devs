@@ -14,7 +14,7 @@ namespace Application.Features.Technologies.Dtos
         public string Name { get; set; }
 
 
-        public string ProgrammingLanguageName { get; set; }
+        
 
     }
 }
