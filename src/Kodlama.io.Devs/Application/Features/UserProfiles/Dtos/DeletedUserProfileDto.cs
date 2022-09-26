@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.GithubAccounts.Commands.CreateGitHubAccount
+namespace Application.Features.UserProfiles.Dtos
 {
-    public class CreateGitHubAccountCommand
+    public class DeletedUserProfileDto
     {
+        public int Id { get; set; }
     }
 }

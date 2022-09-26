@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.SocialMediaAccounts.GithubAccount.Dtos
+namespace Application.Features.SocialMediaAddresses.GithubAddresses.Dtos
 {
-    public class GithubAccountListDto
+    public class SocialMediaAddressGetByIdDto
     {
         public int Id { get; set; }
         public string Type { get; set; }

@@ -21,7 +21,7 @@ namespace Persistence.Contexts
         public DbSet<UserProfile> UserProfiles { get; set; }
 
 
-        public DbSet<SocialMediaAccount> SocialMediaAccounts { get; set; }
+        public DbSet<SocialMediaAddress> SocialMediaAddresses { get; set; }
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;
@@ -96,14 +96,14 @@ namespace Persistence.Contexts
                 a.Property(p => p.WebSiteUrl).HasColumnName("WebSiteUrl");
                 a.Property(p => p.FullAddress).HasColumnName("FullAddress");
                 a.Property(p => p.BirthDate).HasColumnName("BirthDate");
-                a.HasMany(p => p.SocialMediaAccounts);
+                a.HasMany(p => p.SocialMediaAddresses);
 
             });
 
 
-            modelBuilder.Entity<SocialMediaAccount>(a =>
+            modelBuilder.Entity<SocialMediaAddress>(a =>
             {
-                a.ToTable("SocialMediaAccounts").HasKey(k => k.Id);
+                a.ToTable("SocialMediaAddresses").HasKey(k => k.Id);
                 a.Property(p => p.Id).HasColumnName("Id");
                 a.Property(p => p.Type).HasColumnName("Type");
                 a.Property(p => p.Url).HasColumnName("Url");

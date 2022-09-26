@@ -1,6 +1,6 @@
-﻿using Application.Features.ProgrammingLanguages.Rules;
+﻿using Application.Features.Authentication.Rules;
+using Application.Features.ProgrammingLanguages.Rules;
 using Application.Features.Technologies.Rules;
-using Application.Features.Users.Rules;
 using Core.Application.Pipelines.Authorization;
 using Core.Application.Pipelines.Validation;
 using FluentValidation;
@@ -20,7 +20,7 @@ namespace Application
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddScoped<ProgrammingLanguageBusinessRules>();
             services.AddScoped<TechnologyBusinessRules>();
-            services.AddScoped<UserBusinessRules>();
+            services.AddScoped<AuthenticationBusinessRules>();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));

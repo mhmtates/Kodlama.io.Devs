@@ -194,7 +194,7 @@ namespace Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Domain.Entities.SocialMediaAccount", b =>
+            modelBuilder.Entity("Domain.Entities.SocialMediaAddress", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -224,7 +224,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("UserProfileId");
 
-                    b.ToTable("SocialMediaAccounts", (string)null);
+                    b.ToTable("SocialMediaAddresses", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Technology", b =>
@@ -375,10 +375,10 @@ namespace Persistence.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Domain.Entities.SocialMediaAccount", b =>
+            modelBuilder.Entity("Domain.Entities.SocialMediaAddress", b =>
                 {
                     b.HasOne("Domain.Entities.UserProfile", "UserProfile")
-                        .WithMany("SocialMediaAccounts")
+                        .WithMany("SocialMediaAddresses")
                         .HasForeignKey("UserProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -420,7 +420,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.UserProfile", b =>
                 {
-                    b.Navigation("SocialMediaAccounts");
+                    b.Navigation("SocialMediaAddresses");
                 });
 #pragma warning restore 612, 618
         }

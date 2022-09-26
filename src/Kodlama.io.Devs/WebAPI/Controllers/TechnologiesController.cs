@@ -4,8 +4,8 @@ using Application.Features.Technologies.Commands.UpdateTechnology;
 using Application.Features.Technologies.Dtos;
 using Application.Features.Technologies.Models;
 using Application.Features.Technologies.Queries.GetListTechnology;
+using Application.Features.Technologys.Queries.GetByIdTechnology;
 using Core.Application.Requests;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -26,6 +26,13 @@ namespace WebAPI.Controllers
         {
             GetListTechnologyQuery getListTechnologyQuery = new() { PageRequest = pageRequest };
             TechnologyListModel result = await Mediator.Send(getListTechnologyQuery);
+            return Ok(result);
+        }
+
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> GetById([FromRoute] GetByIdTechnologyQuery getByIdTechnologyQuery)
+        {
+            TechnologyGetByIdDto result = await Mediator.Send(getByIdTechnologyQuery);
             return Ok(result);
         }
 

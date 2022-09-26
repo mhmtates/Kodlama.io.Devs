@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.SocialMediaAccounts.GithubAccount.Dtos
+namespace Application.Features.SocialMediaAddresses.GithubAddresses.Dtos
 {
-    public class GithubAccountGetByIdDto
+    public class SocialMediaAddressListDto
     {
         public int Id { get; set; }
-        public string Type { get; set; }
+        public const string Type = "Github";
         public string Url { get; set; }
 
         public int UserProfileId { get; set; }

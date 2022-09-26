@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Services.Repositories
 {
-    public interface ISocialMediaAccountRepository : IAsyncRepository<SocialMediaAccount>, IRepository<SocialMediaAccount>
+    public interface ISocialMediaAddressRepository : IAsyncRepository<SocialMediaAddress>, IRepository<SocialMediaAddress>
     {
     }
 }

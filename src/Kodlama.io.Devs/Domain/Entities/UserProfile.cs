@@ -24,7 +24,7 @@ namespace Domain.Entities
       
         public DateTime BirthDate { get; set; }
        
-        public virtual ICollection<SocialMediaAccount> SocialMediaAccounts { get; set; }
+        public virtual ICollection<SocialMediaAddress> SocialMediaAddresses { get; set; }
        
         public UserProfile()
         {

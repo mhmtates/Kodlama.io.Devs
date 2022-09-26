@@ -42,23 +42,20 @@ namespace Application.Features.Authentication.Commands.RegisterUser
             {
                 await _authenticationBusinessRules.UserEMailAddressCannotBeUsedTwiceWhenRegistered(request.UserForRegisterDto.Email);
 
-                User? mappedUser = _mapper.Map<UserProfile>(request.UserForRegisterDto);
-
-
-                byte[] passwordHash,passwordSalt;
-
+                byte[] passwordHash, passwordSalt;
                 HashingHelper.CreatePasswordHash(request.UserForRegisterDto.Password, out passwordHash, out passwordSalt);
 
-                mappedUser.PasswordSalt = passwordSalt;
+                User? mappedUser = _mapper.Map<User>(request);
                 mappedUser.PasswordHash = passwordHash;
+                mappedUser.PasswordSalt = passwordSalt;
                 mappedUser.Status = true;
 
                 User createdUser = await _userRepository.AddAsync(mappedUser);
 
                 const string ClaimName = "User";
-                OperationClaim? operationClaim = await _operationClaimRepository.GetAsync(o => o.Name == ClaimName);
+                OperationClaim? operationClaim = await _operationClaimRepository.GetAsync(a => a.Name == ClaimName);
 
-                IList<OperationClaim> operationClaims = (await _userOperationClaimRepository.GetListAsync(o => o.UserId == createdUser.Id)).Items.Select(o => o.OperationClaim).ToList();
+                IList<OperationClaim> operationClaims = (await _userOperationClaimRepository.GetListAsync(a => a.UserId == createdUser.Id)).Items.Select(a => a.OperationClaim).ToList();
 
                 AccessToken accessToken = _tokenHelper.CreateToken(createdUser, operationClaims);
 

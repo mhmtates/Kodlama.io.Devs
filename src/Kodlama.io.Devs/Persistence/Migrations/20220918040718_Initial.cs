@@ -155,7 +155,7 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SocialMediaAccounts",
+                name: "SocialMediaAddresses",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -167,9 +167,9 @@ namespace Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SocialMediaAccounts", x => x.Id);
+                    table.PrimaryKey("PK_SocialMediaAddresses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SocialMediaAccounts_UserProfiles_UserProfileId",
+                        name: "FK_SocialMediaAddresses_UserProfiles_UserProfileId",
                         column: x => x.UserProfileId,
                         principalTable: "UserProfiles",
                         principalColumn: "Id",
@@ -210,8 +210,8 @@ namespace Persistence.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SocialMediaAccounts_UserProfileId",
-                table: "SocialMediaAccounts",
+                name: "IX_SocialMediaAddresses_UserProfileId",
+                table: "SocialMediaAddresses",
                 column: "UserProfileId");
 
             migrationBuilder.CreateIndex(
@@ -236,7 +236,7 @@ namespace Persistence.Migrations
                 name: "RefreshToken");
 
             migrationBuilder.DropTable(
-                name: "SocialMediaAccounts");
+                name: "SocialMediaAddresses");
 
             migrationBuilder.DropTable(
                 name: "Technologies");

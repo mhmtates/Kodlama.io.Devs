@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class SocialMediaAccount : Entity
+    public class SocialMediaAddress : Entity
     {
         public string Type { get; set; }
         public string Url { get; set; }
         public virtual UserProfile UserProfile { get; set; }
 
         public int UserId { get; set; }
-        public SocialMediaAccount()
+        public SocialMediaAddress()
         {
 
         }
 
-        public SocialMediaAccount(int id, string type, string url, int userid) : this()
+        public SocialMediaAddress(int id, string type, string url, int userid) : this()
         {
             Id = id;
             Type = type;

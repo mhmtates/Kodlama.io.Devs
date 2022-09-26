@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.GithubAccounts.Commands.UpdateGitHubAccount
+namespace Application.Features.Technologies.Dtos
 {
-    public class UpdateGitHubAccountCommand
+    public class TechnologyGetByIdDto
     {
-
+        public int Id { get; set; }
     }
 }
