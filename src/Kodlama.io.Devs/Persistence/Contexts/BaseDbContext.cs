@@ -20,7 +20,7 @@ namespace Persistence.Contexts
 
         public DbSet<UserProfile> UserProfiles { get; set; }
 
-
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<SocialMediaAddress> SocialMediaAddresses { get; set; }
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
@@ -100,6 +100,20 @@ namespace Persistence.Contexts
 
             });
 
+            modelBuilder.Entity<RefreshToken>(a =>
+            {
+                a.ToTable("RefreshTokens");
+                a.Property(p => p.UserId).HasColumnName("UserId");
+                a.Property(p => p.Token).HasColumnName("Token");
+                a.Property(p => p.Expires).HasColumnName("Expires");
+                a.Property(p => p.Created).HasColumnName("Created");
+                a.Property(p => p.CreatedByIp).HasColumnName("CreatedByIp");
+                a.Property(p => p.Revoked).HasColumnName("Revoked");
+                a.Property(p => p.RevokedByIp).HasColumnName("RevokedByIp");
+                a.Property(p => p.ReplacedByToken).HasColumnName("ReplacedByToken");
+                a.Property(p => p.ReasonRevoked).HasColumnName("ReasonRevoked");
+                a.HasOne(p => p.User);
+            });
 
             modelBuilder.Entity<SocialMediaAddress>(a =>
             {
@@ -117,7 +131,7 @@ namespace Persistence.Contexts
             modelBuilder.Entity<ProgrammingLanguage>().HasData(programmingLanguageEntitySeeds);
             Technology[] technologyEntitySeeds = { new(1, 1, "WPF"), new(2, 1, "ASP.NET"), new(3, 2, "Spring"), new(4, 2, "JSP"), new(5, 3, "NumPy"), new(6, 3, "Django") };
             modelBuilder.Entity<Technology>().HasData(technologyEntitySeeds);
-            
+
 
 
         }
