@@ -5,9 +5,9 @@ using Persistence.Contexts;
 
 namespace Persistence.Repositories
 {
-    public class OperationClaimRepository : EfRepositoryBase<OperationClaim, BaseDbContext>, IOperationClaimRepository
+    public class RefreshTokenRepository : EfRepositoryBase<RefreshToken, BaseDbContext>, IRefreshTokenRepository
     {
-        public OperationClaimRepository(BaseDbContext context) : base(context)
+        public RefreshTokenRepository(BaseDbContext context) : base(context)
         {
 
         }

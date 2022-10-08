@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Features\Authentication\Rules\AuthenticationBusinessRules.cs~RF9a99945a.TMP" />
+    <None Remove="Features\Auths\Rules\AuthsBusinessRules.cs~RF9a99945a.TMP" />
   </ItemGroup>
 
   <ItemGroup>

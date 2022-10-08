@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Authentication.Commands.RegisterUser
+namespace Application.Features.Auths.Commands.Register
 {
-    public class RegisterUserCommandValidator:AbstractValidator<UserForRegisterDto>
+    public class RegisterCommandValidator:AbstractValidator<UserForRegisterDto>
     {
 
-        public RegisterUserCommandValidator()
+        public RegisterCommandValidator()
         {
             RuleFor(a => a.Email).NotEmpty();
             RuleFor(a => a.Email).EmailAddress();
