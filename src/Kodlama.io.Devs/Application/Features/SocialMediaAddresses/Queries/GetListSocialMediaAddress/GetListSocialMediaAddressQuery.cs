@@ -7,19 +7,19 @@ using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Features.SocialMediaAddresses.Queries.GetByIdGithubAddress
+namespace Application.Features.SocialMediaAddresses.Queries.GetByIdSocialMediaAddress
 {
     public class GetListSocialMediaAddressQuery : IRequest<SocialMediaAddressListModel>
     {
 
         public PageRequest PageRequest { get; set; }
 
-        public class GetListGithubAddressQueryHandler : IRequestHandler<GetListSocialMediaAddressQuery, SocialMediaAddressListModel>
+        public class GetListSocialMediaAddressQueryHandler : IRequestHandler<GetListSocialMediaAddressQuery, SocialMediaAddressListModel>
         {
             private readonly ISocialMediaAddressRepository _socialMediaAddressRepository;
             private readonly IMapper _mapper;
 
-            public GetListGithubAddressQueryHandler(ISocialMediaAddressRepository socialMediaAddressRepository, IMapper mapper)
+            public GetListSocialMediaAddressQueryHandler(ISocialMediaAddressRepository socialMediaAddressRepository, IMapper mapper)
             {
                 _socialMediaAddressRepository = socialMediaAddressRepository;
                 _mapper = mapper;

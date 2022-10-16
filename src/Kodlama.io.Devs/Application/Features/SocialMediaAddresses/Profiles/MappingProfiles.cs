@@ -2,7 +2,7 @@
 using Application.Features.SocialMediaAddresses.Commands.DeleteSocialMediaAddress;
 using Application.Features.SocialMediaAddresses.Commands.UpdateSocialMediaAddress;
 using Application.Features.SocialMediaAddresses.Dtos;
-using Application.Features.SocialMediaAddresses.Queries.GetByIdGithubAddress;
+using Application.Features.SocialMediaAddresses.Queries.GetByIdSocialMediaAddress;
 using Application.Features.SocialMediaAddresses.Models;
 using AutoMapper;
 using Core.Persistence.Paging;

@@ -6,7 +6,7 @@ using Domain.Entities;
 using MediatR;
 
 
-namespace Application.Features.SocialMediaAddresses.Queries.GetByIdGithubAddress
+namespace Application.Features.SocialMediaAddresses.Queries.GetByIdSocialMediaAddress
 {
     public class GetByIdSocialMediaAddressQuery : IRequest<SocialMediaAddressGetByIdDto>
     {
