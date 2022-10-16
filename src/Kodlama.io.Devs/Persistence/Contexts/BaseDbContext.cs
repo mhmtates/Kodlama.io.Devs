@@ -21,7 +21,11 @@ namespace Persistence.Contexts
         public DbSet<UserProfile> UserProfiles { get; set; }
 
         public DbSet<RefreshToken> RefreshTokens { get; set; }
+
+        
         public DbSet<SocialMediaAddress> SocialMediaAddresses { get; set; }
+
+
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;
@@ -96,7 +100,7 @@ namespace Persistence.Contexts
                 a.Property(p => p.WebSiteUrl).HasColumnName("WebSiteUrl");
                 a.Property(p => p.FullAddress).HasColumnName("FullAddress");
                 a.Property(p => p.BirthDate).HasColumnName("BirthDate");
-                a.HasMany(p => p.SocialMediaAddresses);
+                a.HasMany (p => p.SocialMediaAddresses);
 
             });
 
@@ -115,11 +119,14 @@ namespace Persistence.Contexts
                 a.HasOne(p => p.User);
             });
 
+           
+
+
             modelBuilder.Entity<SocialMediaAddress>(a =>
             {
                 a.ToTable("SocialMediaAddresses").HasKey(k => k.Id);
                 a.Property(p => p.Id).HasColumnName("Id");
-                a.Property(p => p.Type).HasColumnName("Type");
+                a.Property(p => p.SocialMediaPlatform).HasColumnName("SocialMediaPlatform");
                 a.Property(p => p.Url).HasColumnName("Url");
                 a.Property(p => p.UserProfileId).HasColumnName("UserProfileId");
                 a.HasOne(p => p.UserProfile);

@@ -18,14 +18,15 @@ namespace Domain.Entities
         public string PhoneNumber { get; set; }
         public string? WebSiteUrl { get; set; }
         public string FullAddress { get; set; }
+        
+        public DateTime BirthDate { get; set; }
 
-       
+
+        
+
+        public virtual ICollection<SocialMediaAddress> SocialMediaAddresses { get; set; }
 
       
-        public DateTime BirthDate { get; set; }
-       
-        public virtual ICollection<SocialMediaAddress> SocialMediaAddresses { get; set; }
-       
         public UserProfile()
         {
            
